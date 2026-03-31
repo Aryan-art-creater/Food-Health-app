@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriLife - Recipes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <a href="Task.html" class="logo">
+            <i class="fa-solid fa-leaf"></i> NutriLife
+        </a>
+        <div class="nav-links">
+            <a href="Task.html">Home</a>
+            <a href="tracking.html">Tracking</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="meal-plan.html">Meal Plan</a>
+            <a href="#" class="nav-login-btn" id="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <section class="recipes" id="recipes" style="padding-top: 10rem;">
+        <h2 class="section-title">Trending Healthy Recipes</h2>
+        <div class="recipe-grid">
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recipe 1" class="recipe-img">
+                <div class="recipe-info">
+                    <h3 class="recipe-title">Supergreen Quinoa Bowl</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fa-solid fa-fire"></i> 320 kcal</span>
+                        <span><i class="fa-solid fa-clock"></i> 15 min</span>
+                    </div>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recipe 2" class="recipe-img">
+                <div class="recipe-info">
+                    <h3 class="recipe-title">Berry Antioxidant Bowl</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fa-solid fa-fire"></i> 240 kcal</span>
+                        <span><i class="fa-solid fa-clock"></i> 10 min</span>
+                    </div>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recipe 3" class="recipe-img">
+                <div class="recipe-info">
+                    <h3 class="recipe-title">Avocado Rainbow Salad</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fa-solid fa-fire"></i> 280 kcal</span>
+                        <span><i class="fa-solid fa-clock"></i> 12 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="modal-title">Welcome Back</h2>
+            <p class="modal-subtitle">Log in to track your nutrition</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn login-submit-btn">Log In</button>
+                <p class="modal-footer">Don't have an account? <a href="#">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriLife - Tracking</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <a href="Task.html" class="logo">
+            <i class="fa-solid fa-leaf"></i> NutriLife
+        </a>
+        <div class="nav-links">
+            <a href="Task.html">Home</a>
+            <a href="tracking.html">Tracking</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="meal-plan.html">Meal Plan</a>
+            <a href="#" class="nav-login-btn" id="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <section class="tracker" id="tracker" style="padding-top: 10rem;">
+        <h2 class="section-title">Daily Calorie Tracker</h2>
+        <div class="tracker-container">
+            <div class="tracker-stats">
+                <div class="progress-ring-container">
+                    <svg class="progress-ring" width="200" height="200">
+                        <circle class="ring-bg" cx="100" cy="100" r="85"></circle>
+                        <circle class="ring-progress" cx="100" cy="100" r="85" id="kcal-progress"></circle>
+                    </svg>
+                    <div class="progress-info">
+                        <h3 id="current-kcal" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">0</h3>
+                        <p>/ <span id="goal-kcal">2000</span> kcal</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tracker-content">
+                <form id="food-form" class="tracker-form">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="food-name">Food Item</label>
+                            <input type="text" id="food-name" placeholder="e.g. Avocado Toast" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="food-kcal">Calories</label>
+                            <input type="number" id="food-kcal" placeholder="e.g. 250" required min="1">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn calc-btn add-btn"><i class="fa-solid fa-plus"></i> Add Food</button>
+                </form>
+                
+                <div class="food-list-container">
+                    <ul class="food-list" id="food-list">
+                        <!-- Items injected here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hydration Tracker -->
+    <section class="water-tracker" id="hydration">
+        <h2 class="section-title">Daily Hydration</h2>
+        <div class="water-container">
+            <div class="water-stats">
+                <div class="water-glass">
+                    <div class="water-level" id="water-level"></div>
+                </div>
+                <div class="water-info">
+                    <h3 id="current-water">0</h3>
+                    <p>/ <span id="goal-water">2500</span> ml</p>
+                </div>
+            </div>
+            
+            <div class="water-controls">
+                <p class="water-subtitle">Stay hydrated to feel your best!</p>
+                <div class="water-buttons">
+                    <button type="button" class="btn water-btn" data-amount="250">
+                        <i class="fa-solid fa-glass-water"></i> +250ml
+                    </button>
+                    <button type="button" class="btn water-btn" data-amount="500">
+                        <i class="fa-solid fa-bottle-water"></i> +500ml
+                    </button>
+                    <button type="button" class="btn water-btn reset-btn" id="water-reset">
+                        <i class="fa-solid fa-rotate-left"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="modal-title">Welcome Back</h2>
+            <p class="modal-subtitle">Log in to track your nutrition</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn login-submit-btn">Log In</button>
+                <p class="modal-footer">Don't have an account? <a href="#">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

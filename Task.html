@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriLife - Food & Health</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <a href="Task.html" class="logo">
+            <i class="fa-solid fa-leaf"></i> NutriLife
+        </a>
+        <div class="nav-links">
+            <a href="Task.html">Home</a>
+            <a href="tracking.html">Tracking</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="meal-plan.html">Meal Plan</a>
+            <a href="#" class="nav-login-btn" id="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Nourish Your Body,<br>Elevate Your Life</h1>
+            <p>Discover personalized health insights, premium nutritious recipes, and tracking tools to help you achieve your wellness goals.</p>
+            <a href="recipes.html" class="btn">Explore Recipes</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" alt="Healthy Food Bowl">
+        </div>
+    </section>
+
+    <section class="calculator" id="calculator">
+        <div class="calc-container">
+            <h2 class="calc-title">BMI Calculator</h2>
+            <form id="bmi-form">
+                <div class="input-group">
+                    <label for="height">Height (in cm)</label>
+                    <input type="number" id="height" placeholder="e.g. 175" required>
+                </div>
+                <div class="input-group">
+                    <label for="weight">Weight (in kg)</label>
+                    <input type="number" id="weight" placeholder="e.g. 70" required>
+                </div>
+                <button type="submit" class="btn calc-btn">Calculate Your BMI</button>
+            </form>
+            <div class="result" id="calc-result">
+                <h3 id="bmi-value">--</h3>
+                <p>Status: <strong id="bmi-text">--</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="modal-title">Welcome Back</h2>
+            <p class="modal-subtitle">Log in to track your nutrition</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn login-submit-btn">Log In</button>
+                <p class="modal-footer">Don't have an account? <a href="#">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
