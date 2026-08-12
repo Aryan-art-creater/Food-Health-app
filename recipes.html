@@ -23,39 +23,45 @@
 
     <section class="recipes" id="recipes" style="padding-top: 10rem;">
         <h2 class="section-title">Trending Healthy Recipes</h2>
-        <div class="recipe-grid">
-            <div class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recipe 1" class="recipe-img">
-                <div class="recipe-info">
-                    <h3 class="recipe-title">Supergreen Quinoa Bowl</h3>
-                    <div class="recipe-meta">
-                        <span><i class="fa-solid fa-fire"></i> 320 kcal</span>
-                        <span><i class="fa-solid fa-clock"></i> 15 min</span>
-                    </div>
+        
+        <div class="recipe-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="veg">Veg</button>
+            <button class="filter-btn" data-filter="non-veg">Non-Veg</button>
+        </div>
+
+        <div class="recipe-grid" id="main-recipe-grid">
+            <!-- Dynamically populated by recipesData.js & script.js -->
+        </div>
+    </section>
+
+    <!-- Recipe Detail Modal -->
+    <div class="modal-overlay" id="recipe-modal">
+        <div class="modal-content recipe-modal-content">
+            <button class="close-modal" id="close-recipe-modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="recipe-modal-grid">
+                <div class="rm-image-col">
+                    <img src="" alt="Recipe Image" id="rm-image">
                 </div>
-            </div>
-            <div class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recipe 2" class="recipe-img">
-                <div class="recipe-info">
-                    <h3 class="recipe-title">Berry Antioxidant Bowl</h3>
-                    <div class="recipe-meta">
-                        <span><i class="fa-solid fa-fire"></i> 240 kcal</span>
-                        <span><i class="fa-solid fa-clock"></i> 10 min</span>
+                <div class="rm-info-col">
+                    <h2 class="modal-title" id="rm-title" style="text-align: left; margin-bottom: 1rem;">Recipe Title</h2>
+                    <div class="recipe-meta" style="margin-bottom: 2rem;">
+                        <span><i class="fa-solid fa-fire"></i> <span id="rm-cals"></span> kcal</span>
+                        <span style="margin-left: 1rem;"><i class="fa-solid fa-clock"></i> <span id="rm-time"></span></span>
+                        <span style="margin-left: 1rem; text-transform: uppercase; color: var(--accent-color); font-weight: 800;" id="rm-cat"></span>
                     </div>
-                </div>
-            </div>
-            <div class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recipe 3" class="recipe-img">
-                <div class="recipe-info">
-                    <h3 class="recipe-title">Avocado Rainbow Salad</h3>
-                    <div class="recipe-meta">
-                        <span><i class="fa-solid fa-fire"></i> 280 kcal</span>
-                        <span><i class="fa-solid fa-clock"></i> 12 min</span>
-                    </div>
+                    
+                    <h3 style="margin-bottom: 0.5rem;">Ingredients</h3>
+                    <ul id="rm-ingredients" class="rm-list">
+                    </ul>
+
+                    <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Instructions</h3>
+                    <ol id="rm-instructions" class="rm-list">
+                    </ol>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Login Modal -->
     <div class="modal-overlay" id="login-modal">
@@ -78,6 +84,7 @@
         </div>
     </div>
 
+    <script src="recipesData.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -255,4 +255,91 @@ document.addEventListener('DOMContentLoaded', () => {
             calendarGrid.appendChild(dayBox);
         }
     }
+
+    // Recipe Gallery Rendering & Filtering
+    const recipeGrid = document.getElementById('main-recipe-grid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    
+    // Recipe Modal Elements
+    const recipeModal = document.getElementById('recipe-modal');
+    const closeRecipeModalBtn = document.getElementById('close-recipe-modal');
+    const rmImage = document.getElementById('rm-image');
+    const rmTitle = document.getElementById('rm-title');
+    const rmCals = document.getElementById('rm-cals');
+    const rmTime = document.getElementById('rm-time');
+    const rmCat = document.getElementById('rm-cat');
+    const rmIngredients = document.getElementById('rm-ingredients');
+    const rmInstructions = document.getElementById('rm-instructions');
+
+    if (recipeGrid && typeof recipesData !== 'undefined') {
+        // Render Function
+        function renderRecipes(filter = 'all') {
+            recipeGrid.innerHTML = ''; // clear
+            
+            recipesData.forEach(recipe => {
+                if (filter === 'all' || recipe.category === filter) {
+                    const card = document.createElement('div');
+                    card.className = `recipe-card`;
+                    card.dataset.id = recipe.id;
+                    card.innerHTML = `
+                        <img src="${recipe.image}" alt="${recipe.title}" class="recipe-img">
+                        <div class="recipe-info">
+                            <h3 class="recipe-title">${recipe.title}</h3>
+                            <div class="recipe-meta">
+                                <span><i class="fa-solid fa-fire"></i> ${recipe.calories} kcal</span>
+                                <span><i class="fa-solid fa-clock"></i> ${recipe.time}</span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Click to open modal
+                    card.addEventListener('click', () => {
+                        openRecipeModal(recipe);
+                    });
+
+                    recipeGrid.appendChild(card);
+                }
+            });
+        }
+
+        // Open Modal Function
+        function openRecipeModal(recipe) {
+            rmImage.src = recipe.image;
+            rmTitle.textContent = recipe.title;
+            rmCals.textContent = recipe.calories;
+            rmTime.textContent = recipe.time;
+            rmCat.textContent = recipe.category === 'veg' ? 'Vegetarian' : 'Non-Vegetarian';
+            
+            // Populate lists
+            rmIngredients.innerHTML = recipe.ingredients.map(ing => `<li>${ing}</li>`).join('');
+            rmInstructions.innerHTML = recipe.instructions.map(inst => `<li>${inst}</li>`).join('');
+
+            recipeModal.classList.add('show-modal');
+        }
+
+        // Close Modal Handlers
+        if (closeRecipeModalBtn) {
+            closeRecipeModalBtn.addEventListener('click', () => {
+                recipeModal.classList.remove('show-modal');
+            });
+            recipeModal.addEventListener('click', (e) => {
+                if (e.target === recipeModal) recipeModal.classList.remove('show-modal');
+            });
+        }
+
+        // Filter Logic
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // remove active class
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filterValue = btn.getAttribute('data-filter');
+                renderRecipes(filterValue);
+            });
+        });
+
+        // Initialize
+        renderRecipes('all');
+    }
 });
